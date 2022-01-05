@@ -205,6 +205,13 @@ app.put('/orders/:id', async (req, res) => {
   const result = await ordersCollection.updateOne(filter, updateDoc);
   res.json(result)
 });
+app.get('/orders/:id', async (req, res) => {
+  const id = req.params.id;
+  const query = { _id: ObjectId(id) };
+  const result = await ordersCollection.findOne(query);
+  res.send(result);
+  // ai part er pore data ta /5000/users/id te pabo 
+});
   } finally {
 
   }
