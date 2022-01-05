@@ -202,13 +202,13 @@ app.put('/orders/:id', async (req, res) => {
           payment: payment
       }
   }
-  const result = await ordersCollection.updateOne(filter, updateDoc);
+  const result = await order_collection.updateOne(filter, updateDoc);
   res.json(result)
 });
 app.get('/orders/:id', async (req, res) => {
   const id = req.params.id;
   const query = { _id: ObjectId(id) };
-  const result = await ordersCollection.findOne(query);
+  const result = await order_collection.findOne(query);
   res.send(result);
   // ai part er pore data ta /5000/users/id te pabo 
 });
